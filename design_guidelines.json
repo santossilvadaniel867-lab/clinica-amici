@@ -1,0 +1,102 @@
+{
+  "theme": "dark",
+  "archetype": "LUXURY",
+  "colors": {
+    "background": "#0E0B0A",
+    "background_light": "#F3E7DB",
+    "primary": "#8A6552",
+    "primary_dark": "#6E4B3A",
+    "accent": "#A87C63",
+    "text_primary": "#EAD9C7",
+    "text_secondary": "#B5A092",
+    "border": "#2A1E19",
+    "card_bg": "#161110"
+  },
+  "typography": {
+    "headings": {
+      "family": "Cormorant Garamond, serif",
+      "weight": "300, 400, 500, 600",
+      "style": "Elegant, editorial, high contrast. Use italics for emphasis."
+    },
+    "body": {
+      "family": "Manrope, sans-serif",
+      "weight": "300, 400",
+      "style": "Clean, highly readable, wide tracking for caps."
+    },
+    "scale": {
+      "h1": "text-5xl md:text-7xl lg:text-8xl tracking-tight leading-none",
+      "h2": "text-4xl md:text-5xl lg:text-6xl tracking-tight leading-tight",
+      "h3": "text-2xl md:text-3xl lg:text-4xl",
+      "body": "text-base md:text-lg leading-relaxed text-text_secondary",
+      "overline": "text-xs md:text-sm uppercase tracking-[0.2em] text-accent"
+    }
+  },
+  "layouts": {
+    "intro_reveal": {
+      "description": "Cinematic full-screen loader. Dark espresso background. 'ÂMICI' wordmark is revealed line-by-line using GSAP, followed by a slight scale down and fade out. Includes the petal/tulip glyph."
+    },
+    "hero": {
+      "description": "Kinetic Hero. A large atmospheric video/image in the background with a 40% black overlay. Big central typography 'Liberdade é estar feliz consigo mesma'. Scroll down indicator."
+    },
+    "scalpel_scroll_section": {
+      "description": "The Hero Mechanic. A pinned section using GSAP ScrollTrigger. A scalpel SVG is centered. As user scrolls down, the scalpel visually 'cuts' the layout vertically, revealing new content or splitting images like a before/after reveal."
+    },
+    "gallery": {
+      "description": "Bento-style or masonry grid with minimal gaps. Hovering over images reveals a subtle dark overlay with the procedure/result name. Editable via Admin."
+    },
+    "admin_cms": {
+      "description": "A clean, functional dashboard accessible via /admin. Uses Shadcn-like customized components in pure JS matching the mocha brand. Forms to edit hero text, update gallery images, manage feedbacks, etc."
+    }
+  },
+  "motion_and_interactions": {
+    "smooth_scroll": "Lenis is mandatory for luxury momentum scrolling.",
+    "intro_timeline": "GSAP timeline: 1. Split text on 'ÂMICI'. 2. Staggered reveal from bottom. 3. Hold for 1.5s. 4. Y-axis slide up of the entire intro curtain.",
+    "scalpel_scrub": "GSAP ScrollTrigger with scrub:true. Pin the container, animate the height of a mask or clip-path based on scroll progress to simulate a downward cut.",
+    "text_reveal": "Framer Motion for general scroll-into-view text elements. Use slight Y translate (20px) and opacity fade."
+  },
+  "components": {
+    "buttons": "Pill-shaped (rounded-full). Dark mocha background with cream text. Hover: subtle scale and background shift to accent color.",
+    "cards": "Minimalist. Background #161110, 1px solid #2A1E19 border. Sharp or slightly rounded (rounded-md) corners.",
+    "admin_sidebar": "Left-aligned, dark espresso, thin border right. Links for: Hero Edit, Gallery, Testimonials, History, Videos.",
+    "forms": "Use Shadcn Input structures translated to raw React/Tailwind. Background transparent, border bottom only (editorial style) or standard subtle borders in Admin."
+  },
+  "visual_enhancers": {
+    "noise": "Subtle SVG film grain overlay fixed across the entire site (opacity 3-5%).",
+    "cursor": "Custom dot cursor using framer-motion that expands when hovering over clickable elements or images.",
+    "borders": "Use 1px borders (#2A1E19) extensively to create an 'architectural/editorial' grid feel."
+  },
+  "image_urls": {
+    "hero_fallback": "https://images.unsplash.com/photo-1763677594421-f58e50cce64d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzJ8MHwxfHNlYXJjaHwyfHxlbGVnYW50JTIwZmVtYWxlJTIwcG9ydHJhaXQlMjBkYXJrJTIwYmFja2dyb3VuZHxlbnwwfHx8fDE3ODU3MzUxODF8MA&ixlib=rb-4.1.0&q=85",
+    "clinic_interior": "https://images.unsplash.com/photo-1648775507324-b48dd3791fa5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhZXN0aGV0aWMlMjBjbGluaWMlMjBpbnRlcmlvciUyMHdhcm18ZW58MHx8fHwxNzg1NzM1MTgxfDA&ixlib=rb-4.1.0&q=85",
+    "maternity_campaign": "https://images.unsplash.com/photo-1778184423837-d5a47ffe23d5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA4Mzl8MHwxfHNlYXJjaHw0fHxtYXRlcm5pdHklMjBtb3RoZXIlMjBiYWJ5JTIwd2FybSUyMGxpZ2h0fGVufDB8fHx8MTc4NTczNTE4MXww&ixlib=rb-4.1.0&q=85",
+    "patient_results": "https://images.unsplash.com/photo-1762103170506-5b2e28075ec6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzJ8MHwxfHNlYXJjaHwzfHxlbGVnYW50JTIwZmVtYWxlJTIwcG9ydHJhaXQlMjBkYXJrJTIwYmFja2dyb3VuZHxlbnwwfHx8fDE3ODU3MzUxODF8MA&ixlib=rb-4.1.0&q=85"
+  },
+  "accessibility": {
+    "contrast": "Ensure text over images always has a gradient or solid dark overlay to maintain WCAG AA readability. Specifically over the mocha background, text should be pure cream/beige.",
+    "motion": "Respect prefers-reduced-motion. Disable GSAP pinned scrub if motion sensitivity is detected.",
+    "testing": "All editable inputs in Admin and major site actions MUST have data-testid attributes."
+  },
+  "instructions_to_main_agent": [
+    "CRITICAL: You are building a pure JS/JSX project. DO NOT use TypeScript (.tsx/.ts) files.",
+    "Install required libraries: `lucide-react`, `framer-motion`, `gsap`, `@studio-freight/lenis`, `clsx`, `tailwind-merge`.",
+    "Configure Tailwind with the exact color tokens (mocha/caramel/espresso). Setup Cormorant Garamond and Manrope via Google Fonts in index.html.",
+    "Implement the 'ÂMICI' cinematic intro as a full-screen fixed overlay using GSAP that plays on first load.",
+    "Build the Scalpel Scroll Cut: Use an SVG icon of a scalpel. Use GSAP ScrollTrigger to pin the section. As you scroll, animate the height of a mask div or use clip-path to 'slice' the content.",
+    "Create an /admin route for the CMS. Mock the database interactions with a simple JSON state or Context API (using localStorage) so changes to texts and images actually persist locally during evaluation.",
+    "Make sure all content blocks (Hero Text, Philosophy Chapter texts, Gallery Photos, History Timeline, Videos) are editable via the CMS.",
+    "DO NOT use a fully transparent header. Use a blurred dark header (`bg-[#0E0B0A]/80 backdrop-blur-xl`) with a 1px solid bottom border (`border-[#2A1E19]`).",
+    "Apply 'data-testid' to all main elements, admin navigation links, and CMS save buttons."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Do not use generic centered layouts or simplistic gradients.",
+    "Use glass-morphism effects with backdrop filters.",
+    "Never apply `transition: all`. Target specific properties.",
+    "Do not center align the App container globally. Respect natural reading flow.",
+    "Do not use AI emoji characters for icons. Use `lucide-react`.",
+    "Every interaction needs micro-animations.",
+    "Use 2-3x more spacing than feels comfortable.",
+    "Add subtle grain textures and custom cursors.",
+    "Always use the provided image URLs. NO generic placeholder links.",
+    "Implement Shadcn components customized to fit the premium mocha dark theme for the admin panel."
+  ]
+}
