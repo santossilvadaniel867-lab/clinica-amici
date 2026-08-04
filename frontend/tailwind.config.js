@@ -12,7 +12,20 @@ module.exports = {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)'
       },
+      fontFamily: {
+        display: ['"Cormorant Garamond"', 'serif'],
+        body: ['Manrope', 'sans-serif'],
+      },
       colors: {
+        espresso: '#0E0B0A',
+        espresso2: '#161110',
+        mocha: '#8A6552',
+        mochaDark: '#6E4B3A',
+        caramel: '#A87C63',
+        cream: '#EAD9C7',
+        cream2: '#F3E7DB',
+        muted2: '#B5A092',
+        line: '#2A1E19',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
