@@ -469,9 +469,23 @@ export default function Site() {
   const [introDone, setIntroDone] = useState(false);
 
   useEffect(() => {
-    getContent()
-      .then((d) => setC(d))
-      .catch((e) => setErr(String(e)));
+    let cancelled = false;
+    const load = async (attempt = 0) => {
+      try {
+        const d = await getContent();
+        if (!d || !d.brand) throw new Error("resposta inválida");
+        if (!cancelled) setC(d);
+      } catch (e) {
+        if (cancelled) return;
+        if (attempt < 6) {
+          setTimeout(() => load(attempt + 1), 1200);
+        } else {
+          setErr(String(e));
+        }
+      }
+    };
+    load();
+    return () => { cancelled = true; };
   }, []);
 
   useEffect(() => {
@@ -484,7 +498,23 @@ export default function Site() {
     return () => { lenis.destroy(); clearTimeout(refresh); };
   }, [c, introDone]);
 
-  if (!c) return <div className="h-screen bg-espresso grid place-items-center text-cream font-body text-sm p-8">{err ? `Erro: ${err}` : ""}</div>;
+  if (!c)
+    return (
+      <div className="h-screen bg-espresso grid place-items-center text-center px-8" data-testid="site-loading">
+        {err ? (
+          <div className="space-y-6">
+            <h1 className="font-display text-5xl text-cream">ÂMICI</h1>
+            <p className="font-body text-muted2 text-sm">Não conseguimos carregar o site agora.</p>
+            <button onClick={() => window.location.reload()} data-testid="retry-btn"
+              className="font-body text-xs uppercase tracking-[0.14em] px-6 py-3 rounded-full bg-mocha text-cream2 hover:bg-caramel transition-colors">
+              Tentar novamente
+            </button>
+          </div>
+        ) : (
+          <h1 className="font-display text-5xl text-cream animate-pulse">ÂMICI</h1>
+        )}
+      </div>
+    );
 
   return (
     <div className="hide-native-cursor bg-espresso">
