@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --espresso: #0E0B0A;
+    --espresso-2: #161110;
+    --mocha: #8A6552;
+    --mocha-dark: #6E4B3A;
+    --caramel: #A87C63;
+    --cream: #EAD9C7;
+    --cream-2: #F3E7DB;
+    --muted: #B5A092;
+    --line: #2A1E19;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: auto; }
+
+body {
+    margin: 0;
+    background: var(--espresso);
+    color: var(--cream);
+    font-family: "Manrope", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+.font-display { font-family: "Cormorant Garamond", serif; }
+.font-body { font-family: "Manrope", sans-serif; }
+
+::selection { background: var(--mocha); color: var(--cream-2); }
+
+::-webkit-scrollbar { width: 9px; }
+::-webkit-scrollbar-track { background: var(--espresso); }
+::-webkit-scrollbar-thumb { background: var(--mocha-dark); border-radius: 10px; }
+
+/* film grain */
+.grain::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    pointer-events: none;
+    opacity: 0.045;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.marquee-track { display: inline-flex; white-space: nowrap; animation: marquee 32s linear infinite; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+.reveal-mask { overflow: hidden; display: block; }
+
+.hide-native-cursor, .hide-native-cursor * { cursor: none !important; }
+
+@media (max-width: 900px) { .hide-native-cursor, .hide-native-cursor * { cursor: auto !important; } }
+
+@layer base {
+    :root {
+        --background: 20 18% 5%;
+        --foreground: 33 40% 85%;
+        --border: 20 25% 13%;
+        --input: 20 25% 13%;
+        --ring: 20 25% 45%;
+        --radius: 0.5rem;
+    }
+}
